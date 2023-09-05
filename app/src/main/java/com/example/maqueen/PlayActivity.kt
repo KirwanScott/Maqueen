@@ -5,7 +5,10 @@ import android.os.Bundle
 import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.net.URL
+import java.util.concurrent.Executors
 
 class PlayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +27,6 @@ class PlayActivity : AppCompatActivity() {
         // RACE-BOT
         val btnRace : Button = findViewById(R.id.btnRace)
         btnRace.setOnClickListener {
-
         }
 
         // ROTATE-BOT
