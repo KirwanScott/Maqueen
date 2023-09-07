@@ -1,4 +1,4 @@
-package com.example.maqueen
+package com.maqueen.maqueen
 
 import org.junit.Test
 

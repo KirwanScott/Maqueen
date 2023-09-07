@@ -1,4 +1,4 @@
-package com.example.maqueen
+package com.maqueen.maqueen
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

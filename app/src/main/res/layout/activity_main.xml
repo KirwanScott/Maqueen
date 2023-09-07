@@ -7,37 +7,66 @@
     android:background="@drawable/wallpaper"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btnSound1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="Sound 1"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:backgroundTint="#15192E"
+        app:layout_constraintBottom_toTopOf="@+id/btnSound2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnSound2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Sound 2"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:backgroundTint="#15192E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <ImageView
         android:id="@+id/btnDown"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:src="@drawable/down"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/btnStop" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I"
+        android:id="@+id/btnStop"
+        android:layout_width="85dp"
+        android:layout_height="49dp"
+        android:gravity="center"
+        android:text="STOP"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/icon"
         android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="484dp"
         android:src="@drawable/icon"
+        app:layout_constraintBottom_toTopOf="@+id/btnFull"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,46 +74,80 @@
         android:id="@+id/btnUp"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="64dp"
         android:src="@drawable/up"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/btnStop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/btnLeft"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="32dp"
         android:src="@drawable/left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnDown"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/btnRight"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="40dp"
         android:src="@drawable/right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnDown"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <Button
-        android:id="@+id/btnPlay"
+        android:id="@+id/btnTricks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="40dp"
-        android:text="Let's Play"
+        android:layout_marginBottom="20dp"
+        android:text="Tricks"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:backgroundTint="#2E47CD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnLights"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="Lights"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:backgroundTint="#EFEFF3"
+        app:layout_constraintBottom_toTopOf="@+id/btnTricks"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnFull"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        android:text="NOS"
+        app:backgroundTint="#5AE425"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon" />
+
+    <Button
+        android:id="@+id/btnDance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="34dp"
+        android:text="Dance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

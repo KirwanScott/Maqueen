@@ -1,99 +1,194 @@
 package com.example.maqueen
 
-import android.animation.ObjectAnimator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import java.net.URL
 import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
+
+    fun executeNetworkTask(url: String) {
+        NetworkTask(this).execute(url)
+    }
+    val executorService2 = Executors.newFixedThreadPool(2)
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val executorService1 = Executors.newFixedThreadPool(2)
-        val executorService2 = Executors.newFixedThreadPool(3)
-
         // icon -> animate icon
-        val icon: ImageView = findViewById(R.id.icon)
-        val animator = ObjectAnimator.ofFloat(icon, "translationY", 0f, 50f)
-        animator.duration = 2000; animator.repeatCount = ObjectAnimator.INFINITE;
-        animator.repeatMode = ObjectAnimator.REVERSE; animator.interpolator = LinearInterpolator()
-        animator.start();
+//        val icon: ImageView = findViewById(R.id.icon)
+//        val animator = ObjectAnimator.ofFloat(icon, "translationY", 0f, 50f)
+//        animator.duration = 2000; animator.repeatCount = ObjectAnimator.INFINITE;
+//        animator.repeatMode = ObjectAnimator.REVERSE; animator.interpolator = LinearInterpolator()
+//        animator.start();
+
+        // multi-threading
 
 
-        // onclick -> directions
-        // UP
+
+
+        // FORWARD
         val btnUp: ImageView = findViewById(R.id.btnUp)
         btnUp.setOnClickListener {
 
-            //val executor = Executors.newSingleThreadExecutor()
-            executorService1.execute {
-                val url = URL("http://192.168.4.1/DriveAlt")
-                val json = url.readText()
-                runOnUiThread {
-                    executorService1.shutdown()
-                }
+            try{
+                val url = "http://192.168.4.1/Drive" // Replace with your URL
+                executeNetworkTask(url)
+            Toast.makeText(this, "Forward Clicked", Toast.LENGTH_SHORT).show()
             }
-            Toast.makeText(this, "Has been clicked", Toast.LENGTH_SHORT).show()
-
-
+            catch (e: Exception)
+            {
+                Toast.makeText(this, e.toString(),Toast.LENGTH_SHORT).show()
+            }
         }
 
 
-        // DOWN
+        // BACKWARD
         val btnDown: ImageView = findViewById(R.id.btnDown)
         btnDown.setOnClickListener {
-            //val executor = Executors.newSingleThreadExecutor()
-            executorService2.execute {
-                val url = URL("http://192.168.4.1/Stop")
-                val json = url.readText()
-                runOnUiThread {
-                    executorService2.shutdown()
-                }
 
+
+            try {
+                val url = "http://192.168.4.1/DriveAlt"
+                executeNetworkTask(url)
             }
-            Toast.makeText(this, "Has been clicked", Toast.LENGTH_SHORT).show()
+            catch (e : Exception)
+            {
+                Toast.makeText(this, e.toString(),Toast.LENGTH_SHORT).show()
+            }
+
+
         }
 
 
-            // LEFT
-            val btnLeft: ImageView = findViewById(R.id.btnLeft)
-            btnLeft.setOnClickListener {
-                val executor = Executors.newSingleThreadExecutor()
-                executor.execute {
-                    val url = URL("http://192.168.4.1/Left")
-                    val json = url.readText()
-                }
-                Toast.makeText(this, "Has been clicked", Toast.LENGTH_SHORT).show()
-
+        // STOP
+        val btnStop: TextView = findViewById(R.id.btnStop)
+        btnStop.setOnClickListener {
+            try {
+                val url = "http://192.168.4.1/Stop"
+                executeNetworkTask(url)
             }
-
-
-            // RIGHT
-            val btnRight: ImageView = findViewById(R.id.btnRight)
-            btnRight.setOnClickListener {
-                val executor = Executors.newSingleThreadExecutor()
-                executor.execute {
-                    val url = URL("http://192.168.4.1/Right")
-                    val json = url.readText()
-                }
-                Toast.makeText(this, "Has been clicked", Toast.LENGTH_SHORT).show()
-
-            }
-
-
-            // navigate to next page -> lets play-btn
-            val btnPlay: Button = findViewById(R.id.btnPlay)
-            btnPlay.setOnClickListener {
-                val intent = Intent(this, PlayActivity::class.java)
-                startActivity(intent)
+            catch (e : Exception)
+            {
+                Toast.makeText(this, e.toString(),Toast.LENGTH_SHORT).show()
             }
         }
 
+
+        // LEFT
+        val btnLeft: ImageView = findViewById(R.id.btnLeft)
+        btnLeft.setOnClickListener {
+            try {
+                val url = "http://192.168.4.1/Left"
+                executeNetworkTask(url)
+            }
+            catch (e : Exception)
+            {
+                Toast.makeText(this, e.toString(),Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+        // RIGHT
+        val btnRight: ImageView = findViewById(R.id.btnRight)
+        btnRight.setOnClickListener {
+            try {
+                val url = "http://192.168.4.1/Right"
+                executeNetworkTask(url)
+            }
+            catch (e : Exception)
+            {
+                Toast.makeText(this, e.toString(),Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val btnSound1: Button = findViewById(R.id.btnSound1)
+        btnSound1.setOnClickListener {
+            try {
+                val url = "http://192.168.4.1/Mario"
+                executeNetworkTask(url)
+            }
+            catch (e : Exception)
+            {
+                Toast.makeText(this, e.toString(),Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val btnSound2: Button = findViewById(R.id.btnSound2)
+        btnSound2.setOnClickListener {
+            try {
+                val url = "http://192.168.4.1/Sonic"
+                executeNetworkTask(url)
+            }
+            catch (e : Exception)
+            {
+                Toast.makeText(this, e.toString(),Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val btnFull: Button = findViewById(R.id.btnFull)
+        btnFull.setOnClickListener {
+            try {
+                val url = "http://192.168.4.1/Full"
+                executeNetworkTask(url)
+            }
+            catch (e : Exception)
+            {
+                Toast.makeText(this, e.toString(),Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val btnDance: Button = findViewById(R.id.btnDance)
+        btnDance.setOnClickListener {
+            try {
+                val url = "http://192.168.4.1/Dance"
+                executeNetworkTask(url)
+            }
+            catch (e : Exception)
+            {
+                Toast.makeText(this, e.toString(),Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+
+
+
+
+        // LIGHTS
+        val btnLights: Button = findViewById(R.id.btnLights)
+        btnLights.setOnClickListener {
+            Toast.makeText(this, "Lights Triggered", Toast.LENGTH_SHORT).show()
+        }
+
+
+
+        // next page -> tricks
+        val btnPlay: Button = findViewById(R.id.btnTricks)
+        btnPlay.setOnClickListener {
+            val intent = Intent(this, TricksActivity::class.java)
+            startActivity(intent)
+        }
     }
+    fun onSuccess(result: String) {
+        // Handle successful network response here
+        runOnUiThread {
+            Toast.makeText(this, "Success: $result", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun onError(exception: Exception) {
+        // Handle network error here
+        runOnUiThread {
+            Toast.makeText(this, "Error: ${exception.message}", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+}
